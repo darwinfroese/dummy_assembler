@@ -20,7 +20,10 @@ private:
     vector<int32_t> registers;
     vector<bool> usedRegisterFlags;
 
-    int find_unused_register();
+    // VariableName = key, RegisterNumber = value
+    map<string, int> variable_register_map;
+
+    int find_register(string);
     bool is_variable(string);
     string convert_variables(string, string);
     string create_label(vector<string> &, string);

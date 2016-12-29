@@ -4,13 +4,14 @@ x Print file out
 x Break file into lines
 x Tokenizing / Determining expression type
 x Conditionals: If
+x Mapping variables to registers
 
 Todo:
+- Loops
 - Ignore:
     * comment lines (or copy them over?)
     * brace only lines
 - Arithmetic
-- Loops
 - Pipelining
 - Conditionals: Else
     - Case 1: Else on own line

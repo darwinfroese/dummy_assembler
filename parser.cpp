@@ -12,6 +12,7 @@ Parser::~Parser() {
 void Parser::ResetParser() {
     conditional_labels.clear();
     loop_labels.clear();
+    variable_register_map.clear();
 
     registers = vector<int32_t>(register_count);
     usedRegisterFlags = vector<bool>(register_count);
@@ -50,12 +51,18 @@ string Parser::ParseLoop(vector<string> expression) {
     return string("Loop");
 }
 
-int Parser::find_unused_register() {
+int Parser::find_register(string var_name) {
     int register_index = 0;
+
+    map<string, int>::iterator it = variable_register_map.find(var_name);
+    if (it != variable_register_map.end()) {
+        return it->second;
+    }
 
     for (vector<bool>::const_iterator i = usedRegisterFlags.begin(); i != usedRegisterFlags.end(); i++) {
         if (!*i) {
             usedRegisterFlags[register_index] = true;
+            variable_register_map.insert(pair<string, int>(var_name, register_index));
             break;
         }
         register_index++;
@@ -83,8 +90,7 @@ string Parser::generate_conditional(vector<string> expression, string opcode) {
 
     instruction << convert_variables(lhs, rhs);
 
-    // TODO: Handle variable re-use
-    instruction << ", " << create_label(conditional_labels, "control");
+    instruction << create_label(conditional_labels, "control");
 
     return instruction.str();
 }
@@ -94,7 +100,7 @@ string Parser::convert_variables(string one, string two) {
 
     // Handle left side
     if (is_variable(one)) {
-        vars << "$" << find_unused_register() << ", ";
+        vars << "$" << find_register(one) << ", ";
     }
     else {
         vars << one << ", ";
@@ -102,7 +108,7 @@ string Parser::convert_variables(string one, string two) {
 
     // Handle right side
     if (is_variable(two)) {
-        vars << "$" << find_unused_register() << ", ";
+        vars << "$" << find_register(two) << ", ";
     }
     else {
         vars << two << ", ";
