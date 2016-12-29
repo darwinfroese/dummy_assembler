@@ -12,7 +12,7 @@ vector<string> assembly_instructions;
 int main(int argc, char *argv[]) {
     parser = Parser();
     read_file("test.txt");
-    write_file("out.txt");
+    write_file("out.s");
     return 0;
 }
 
