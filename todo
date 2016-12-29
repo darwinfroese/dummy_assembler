@@ -6,10 +6,16 @@ x Tokenizing / Determining expression type
 x Conditionals: If
 
 Todo:
+- Ignore:
+    * comment lines (or copy them over?)
+    * brace only lines
 - Arithmetic
 - Loops
 - Pipelining
 - Conditionals: Else
+    - Case 1: Else on own line
+    - Case 2: Else on same line as closing bracket of if
+    - Case 3: Else if
 
 Backlog:
 - Arrays
