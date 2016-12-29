@@ -13,6 +13,6 @@ void read_file(std::string filePath) {
     std::string line;
 
     while (std::getline(file, line)) {
-        std::cout << line;
+        std::cout << line << std::endl;
     }
 }
