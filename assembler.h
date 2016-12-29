@@ -7,3 +7,9 @@
 #include <vector>
 
 using namespace std;
+
+typedef enum {
+    ET_CONTROL,
+    ET_LOOP,
+    ET_ARITHMETIC
+}ExpressionType;
