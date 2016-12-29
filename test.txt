@@ -10,6 +10,10 @@ if (b == c) {
     b = a + c
 }
 
-if (c == a) {
+else {
+    b = c + a
+}
+
+loop (c == a) {
     c = a + b
 }

@@ -1,37 +1,39 @@
 #include "assembler.h"
 
 void read_file(string);
-void write_file(string, vector<string>);
+void write_file(string);
 vector<string> parse(string);
-ExpressionType check_expression(string);
+void handle_line(vector<string>);
+
+vector<string> assembly_instructions;
 
 int main(int argc, char *argv[]) {
     read_file("test.txt");
-
+    write_file("out.txt");
     return 0;
 }
 
 void read_file(string filePath) {
     ifstream file(filePath);
     string line;
+    vector<string> tokens;
 
     while (getline(file, line)) {
         cout << "input: " << line << endl;
-        vector<string> tokens = parse(line);
 
-        write_file("out.txt", tokens);
-        ExpressionType expr = check_expression(tokens[0]);
+        if (!line.empty())
+             tokens = parse(line);
+
+        handle_line(tokens);
     }
 }
 
-void write_file(string filePath, vector<string> lines) {
-    ofstream file(filePath, ofstream::out | ofstream::app);
+void write_file(string filePath) {
+    ofstream file(filePath);
 
-    for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); i++) {
-        file << *i << ' ';
+    for (vector<string>::const_iterator i = assembly_instructions.begin(); i != assembly_instructions.end(); i++) {
+        file << *i << endl;
     }
-
-    file << endl;
 }
 
 vector<string> parse(string line) {
@@ -45,13 +47,20 @@ vector<string> parse(string line) {
     return tokens;
 }
 
-ExpressionType check_expression(string line) {
-    ExpressionType expr = ET_ARITHMETIC;
+void handle_line(vector<string> tokens) {
+    string identifier(tokens[0]);
+    transform(tokens[0].begin(), tokens[0].end(), identifier.begin(), ::tolower);
 
-    if (line == "if")
-        expr = ET_CONTROL;
-    else if (line == "loop")
-        expr = ET_LOOP;
-        
-    return expr;
+    if (identifier.compare("if") == 0) {
+        assembly_instructions.push_back("control - if");
+    }
+    else if (identifier.compare("else") == 0) {
+        assembly_instructions.push_back("control - else");
+    }
+    else if (identifier.compare("loop") == 0) {
+        assembly_instructions.push_back("loop");
+    }
+    else {
+        assembly_instructions.push_back("arithmetic");
+    }
 }

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -7,9 +8,3 @@
 #include <vector>
 
 using namespace std;
-
-typedef enum {
-    ET_CONTROL,
-    ET_LOOP,
-    ET_ARITHMETIC
-}ExpressionType;

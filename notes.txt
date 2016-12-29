@@ -1,0 +1,33 @@
+Problem: Parsing expressions after knowing expression type
+
+Case 1: if statements
+     - everything inside of { } belongs to if statement
+     - read until '}'
+
+Case 2: Loops
+    - everything inside of { } belongs to Loops
+    - read until '}'
+
+Case 3: Arithemitc
+    - line belongs to arithmetic
+    - read line
+
+Solutions:
+    1. Requires more restructuring
+         - read line, check expression type
+         - class/function reads remaining lines (if necessary) and handles as needed
+            ex.
+                // remove the while(getline(...))
+                getline(...)
+                check_expression(tokens[0])
+                if (ET_CONTROL)
+                    handleControl() // reads input until '}'
+    2. Requires less restructuring (BETTER)
+        - read all lines into vector
+
+
+bne r2, r1, ELSE
+add r1, r3, r4
+
+ELSE:
+    add r2, r3, r4
