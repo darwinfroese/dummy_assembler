@@ -31,3 +31,27 @@ add r1, r3, r4
 
 ELSE:
     add r2, r3, r4
+
+
+if (i == j) {
+    f = g + h
+}
+else {
+    f = g - h
+}
+
+----------------------
+
+bne $1, $2, condition
+
+condition:
+
+----------------------
+
+step 1: handle base expressions (if ==, while, +/-)
+step 2: detect pipeline hazards AND handle pipeline hazards
+
+-> wishlist <-
+
+step 3: expand expression handling
+    - ex. if <, a + b * c
