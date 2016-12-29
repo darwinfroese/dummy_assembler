@@ -3,12 +3,13 @@ x Read file
 x Print file out
 x Break file into lines
 x Tokenizing / Determining expression type
-x Conditionals
+x Conditionals: If
 
 Todo:
 - Arithmetic
 - Loops
 - Pipelining
+- Conditionals: Else
 
 Backlog:
 - Arrays
