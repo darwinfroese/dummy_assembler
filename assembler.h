@@ -7,4 +7,6 @@
 #include <string>
 #include <vector>
 
+#include <ctype.h>
+
 using namespace std;

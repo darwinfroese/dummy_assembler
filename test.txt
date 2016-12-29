@@ -1,19 +1,6 @@
-a = b + c
-b = a + c
-c = a + b
-
-if (a == b) {
-    a = b + c
-}
-
-if (b == c) {
-    b = a + c
-}
-
-else {
-    b = c + a
-}
-
-loop (c == a) {
-    c = a + b
-}
+if (a == b)
+if (123 >= b)
+if ('a' <= b)
+if ("abc" != c)
+if (abc > "c")
+if (abcd < 1234)

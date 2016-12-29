@@ -1,13 +1,16 @@
 #include "assembler.h"
+#include "parser.h"
 
 void read_file(string);
 void write_file(string);
 vector<string> parse(string);
 void handle_line(vector<string>);
 
+Parser parser;
 vector<string> assembly_instructions;
 
 int main(int argc, char *argv[]) {
+    parser = Parser();
     read_file("test.txt");
     write_file("out.txt");
     return 0;
@@ -52,15 +55,15 @@ void handle_line(vector<string> tokens) {
     transform(tokens[0].begin(), tokens[0].end(), identifier.begin(), ::tolower);
 
     if (identifier.compare("if") == 0) {
-        assembly_instructions.push_back("control - if");
+        assembly_instructions.push_back(parser.ParseControl(tokens));
     }
     else if (identifier.compare("else") == 0) {
-        assembly_instructions.push_back("control - else");
+        assembly_instructions.push_back(parser.ParseControl(tokens));
     }
     else if (identifier.compare("loop") == 0) {
-        assembly_instructions.push_back("loop");
+        assembly_instructions.push_back(parser.ParseLoop(tokens));
     }
     else {
-        assembly_instructions.push_back("arithmetic");
+        assembly_instructions.push_back(parser.ParseArithmetic(tokens));
     }
 }

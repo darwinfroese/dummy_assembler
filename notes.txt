@@ -55,3 +55,63 @@ step 2: detect pipeline hazards AND handle pipeline hazards
 
 step 3: expand expression handling
     - ex. if <, a + b * c
+
+
+string test = "this is my string";
+
+string token = strtok(test, " ");
+// returns: this
+token = strtok(NULL, " ");
+// returns: is
+token = strtok(NULL, " ");
+// returns: my
+token = strtok(NULL, " ");
+// returns: string
+token = strtok(NULL, " ");
+// returns: NULL
+
+string strtok(string in, string del) {
+    static string input;
+    if (in != NULL)
+        input = in; // input = "this is my string"
+    
+    // get the token
+    
+    input = input - token; // "is my string"
+
+    return token;
+}
+
+
+
+// header file
+struct ParserData {
+    // variables
+}
+
+// Public Functions
+
+------------------------------
+// cpp file
+// private functions
+
+
+
+while i < 10:
+    a = b + c
+    i++
+
+i = $1
+a = $2
+b = $3
+c = $4
+
+// 2 registers needed
+if (a == b)
+
+// 1 register needed
+if ("abc" == b)
+if (a == "abc")
+
+// don't need to handle this
+if ("abc" == "abc")

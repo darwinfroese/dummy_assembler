@@ -1,19 +1,6 @@
-arithmetic
-arithmetic
-arithmetic
-arithmetic
-control - if
-arithmetic
-arithmetic
-arithmetic
-control - if
-arithmetic
-arithmetic
-arithmetic
-control - else
-arithmetic
-arithmetic
-arithmetic
-loop
-arithmetic
-arithmetic
+bne $0, $1, , control0
+blt 123, $2, , control1
+bgt 'a', $3, , control2
+beq "abc", $4, , control3
+ble $5, "c", , control4
+bge $6, 1234, , control5

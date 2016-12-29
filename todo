@@ -1,12 +1,15 @@
+Done:
 x Read file
 x Print file out
 x Break file into lines
-4. Tokenizing / Determining expression type
+x Tokenizing / Determining expression type
+x Conditionals
 
-Wishlist:
+Todo:
 - Arithmetic
 - Loops
-- Conditionals
+- Pipelining
+
+Backlog:
 - Arrays
 - Functions
-- Pipelining
