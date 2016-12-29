@@ -1,3 +1,15 @@
-a = b + c;
-b = a + c;
-c = a + b;
+a = b + c
+b = a + c
+c = a + b
+
+if (a == b) {
+    a = b + c
+}
+
+if (b == c) {
+    b = a + c
+}
+
+if (c == a) {
+    c = a + b
+}

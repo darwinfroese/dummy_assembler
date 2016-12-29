@@ -14,24 +14,18 @@ void read_file(string filePath) {
     string line;
 
     while (getline(file, line)) {
-        cout << line << endl;
+        cout << "input: " << line << endl;
         vector<string> tokens = parse(line);
-
-        for (vector<string>::const_iterator i = tokens.begin(); i != tokens.end(); i++)
-            cout << *i << ' ';
-        
-        cout << endl;
     }
 }
 
 vector<string> parse(string line) {
     string buffer;
     stringstream ss(line);
-
     vector<string> tokens;
 
-    while (ss >> buf)
-        tokens.push_back(buf);
+    while (ss >> buffer)
+        tokens.push_back(buffer);
     
     return tokens;
 }
