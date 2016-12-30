@@ -115,3 +115,16 @@ if (a == "abc")
 
 // don't need to handle this
 if ("abc" == "abc")
+
+
+while (i < 10)
+    a = a + i++
+
+loop1: 
+    bge r1, 10, done
+------
+    add r2, r2, r1
+    add r1, r1, 1
+    jmp loop1
+------
+done:

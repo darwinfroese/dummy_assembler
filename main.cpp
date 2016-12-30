@@ -24,10 +24,14 @@ void read_file(string filePath) {
     while (getline(file, line)) {
         cout << "input: " << line << endl;
 
-        if (!line.empty())
+        if (line[0] == '/' ) {
+            // TODO: Copy comment in assembly format
+            assembly_instructions.push_back(line);
+        }
+        else if (!line.empty() && line[0] != '{' && line[0] != '}') {
              tokens = parse(line);
-
-        handle_line(tokens);
+             handle_line(tokens);
+        }
     }
 }
 

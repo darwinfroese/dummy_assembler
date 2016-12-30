@@ -3,7 +3,6 @@
 if (a == b) {
     c = d + e
 }
-
 // Test Case Two
 //   Simple If/Else Statement
 if (123 >= b) {
@@ -34,4 +33,16 @@ while (a < 10) {
         b = c - d
     }
     a++
+}
+
+// Test Case Five
+//  "If/Else If/Else"
+if (a == b) {
+    c = d + e;
+}
+else if (a < b) {
+    c = d - e;
+}
+else {
+    c = e - d;
 }

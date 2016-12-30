@@ -5,18 +5,23 @@ x Break file into lines
 x Tokenizing / Determining expression type
 x Conditionals: If
 x Mapping variables to registers
+x Ignore:
+    x comment lines (or copy them over?)
+    x brace only lines
+x Conditionals: Else
+    x Case 1: Else on own line
+    x Case 3: Else if
 
 Todo:
 - Loops
-- Ignore:
-    * comment lines (or copy them over?)
-    * brace only lines
 - Arithmetic
 - Pipelining
+- When do we unmap a variable?
+- Copy over comments in assembly format
 - Conditionals: Else
-    - Case 1: Else on own line
     - Case 2: Else on same line as closing bracket of if
-    - Case 3: Else if
+- Conditionals: If
+    - If only an if, we need to print a label after the body
 
 Backlog:
 - Arrays

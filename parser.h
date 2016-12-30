@@ -15,6 +15,8 @@ public:
 private:
     static const int register_count = 32;
 
+    int current_label_number;
+
     vector<string> conditional_labels;
     vector<string> loop_labels;
     vector<int32_t> registers;
@@ -22,6 +24,10 @@ private:
 
     // VariableName = key, RegisterNumber = value
     map<string, int> variable_register_map;
+
+    string parse_if(vector<string>);
+    string parse_else(vector<string>);
+    string parse_switch(vector<string>);
 
     int find_register(string);
     bool is_variable(string);
